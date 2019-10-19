@@ -10,14 +10,8 @@
 <br>
 <div class="container">
 
-    <?php
-    $predmety = [
-        'zeměpis' => 1,
-        'dějepis' => 2,
-        'fyzika' => 3,
-        'přírodopis' => 1
-    ];
-    ?>
+
+
 
     <table class="table table-bordered">
         <thead>
@@ -26,15 +20,38 @@
             <th>Známka</th>
         </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td>prvni sloupec</td>
-                <td>druhy sloupec</td>
-            </tr>
-        </tbody>
+
+
+        <?php
+        $predmety = [
+            'zeměpis' => 1,
+            'dějepis' => 2,
+            'fyzika' => 3,
+            'přírodopis' => 1
+        ];
+        $pocetZnamek = 0;
+        $soucetZnamek= 0;
+
+        foreach ($predmety as $predmet => $znamka) {
+                 echo "<tr>
+                    <td>$predmet</td>
+                    <td>$znamka</td>
+                </tr>";
+                 $pocetZnamek = $pocetZnamek + 1;
+                 $soucetZnamek += $znamka;
+         }
+
+        ?>
+
     </table>
 
-    Průměr:
+    <?php
+
+
+    echo "Průměr:";
+    echo $soucetZnamek/$pocetZnamek;
+?>
+
 
 </div>
 </body>
